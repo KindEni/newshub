@@ -3,9 +3,16 @@ import { useEffect } from "react";
 import Axios from "axios";
 import styled from "styled-components";
 
+const container = styled.div`
+  
+`;
+
 const ArticleBox = styled.div`
   display: grid;
-  grid-template-columns: 
+  grid-template-rows: repeat(3, min-content);
+  grid-template-columns: repeat(3, minmax(min-content, 5rem) );
+  grid-gap: 2rem;
+  justify-content: center;
 `;
 
 const ArticleItem = styled.div`
@@ -36,7 +43,7 @@ export default function NewsBox() {
   }, [loading]);
 
   return (
-    <>
+    <container>
       {loading ? (
         <span>loading...</span>
       ) : (
@@ -50,6 +57,6 @@ export default function NewsBox() {
           ))}
         </ArticleBox>
       )}
-    </>
+    </container>
   );
 }
